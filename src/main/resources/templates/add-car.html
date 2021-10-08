@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>The Pit Stop: Add Vehicle</title>
+</head>
+<body>
+    <h2>The Pit Stop</h2>
+
+    <br><br>
+    <form th:action="@{/car}" th:object="${car}" method="post">
+        <h3>Vehicle Information:</h3>
+        <input id="make" type="text" th:field="*{make}" placeholder="Make">
+        <br>
+        <input id="mode" type="text" th:field="*{mode}" placeholder="Model">
+        <br>
+        <input id="year" type="text" th:field="*{year}" placeholder="Year">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

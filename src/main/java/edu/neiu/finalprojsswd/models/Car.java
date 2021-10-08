@@ -3,17 +3,17 @@ package edu.neiu.finalprojsswd.models;
 public class Car {
 
     private String make;
-    private String mod;
+    private String mode;
     private int year;
 
     public Car() {
         this.make = "";
-        this.mod = "";
+        this.mode = "";
     }
 
     public Car(String make, String mod) {
         this.make = make;
-        this.mod = mod;
+        this.mode = mod;
     }
 
     public String getMake() {
@@ -24,12 +24,12 @@ public class Car {
         this.make = make;
     }
 
-    public String getMod() {
-        return mod;
+    public String getMode() {
+        return mode;
     }
 
-    public void setMod(String mod) {
-        this.mod = mod;
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 
     public int getYear() {
@@ -39,4 +39,9 @@ public class Car {
     public void setYear(int year) {
         this.year = year;
     }
+    @Override
+    public String toString(){
+        return "Your Car:";
+    }
+
 }

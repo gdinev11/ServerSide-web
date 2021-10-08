@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/homepage")
-public class HomeController {
+@RequestMapping("/car")
+public class CarController {
 
     @GetMapping
-    public String getHomePage(Model model) {
+    public String addCar(Model model){
         model.addAttribute("car", new Car());
-        return "index-page";
+        return "add-car";
     }
 }
