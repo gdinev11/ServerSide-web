@@ -2,11 +2,19 @@
 <html lang="en"
     xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <th:block th:fragment="headAttributes">
+        <meta charset="UTF-8">
+    </th:block>
     <title>The Pit Stop: Add Vehicle</title>
 </head>
 <body>
-    <h2>The Pit Stop</h2>
+    <div th:fragment="header">
+        <h2>The Pit Stop</h2>
+    </div>
+
+    <th:block th:fragment="scripts">
+        <script></script>
+    </th:block>
 
     <br><br>
     <form th:action="@{/car}" th:object="${car}" method="post">
@@ -19,6 +27,13 @@
         <br>
         <input type="submit" value="Submit">
     </form>
+
+    <br>
+    <br>
+    
+    <div th:fragment="footer">
+        George Dinev @ Copyright 2021
+    </div>
 
 </body>
 </html>

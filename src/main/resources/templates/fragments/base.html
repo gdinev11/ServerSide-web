@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns.th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:fragment="headAttributes">
         <meta charset="UTF-8">
@@ -11,22 +11,11 @@
     <div th:fragment="header">
         <h2>The Pit Stop</h2>
     </div>
-
-    <th:block th:fragment="scripts">
-        <script></script>
-    </th:block>
-
-    <br><br>
-    <span th:text="${car}"></span>
-    <br><br>
-    <span th:text="${car.make + ' ' + car.mode}"></span>
-
-    <br>
-    <br>
-
     <div th:fragment="footer">
         George Dinev @ Copyright 2021
     </div>
-
+    <th:block th:fragment="scripts">
+        <script></script>
+    </th:block>
 </body>
 </html>
