@@ -2,19 +2,16 @@
 <html lang="en"
     xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:fragment="headAttributes">
+    <th:block th:fragment="headerFiles">
         <meta charset="UTF-8">
     </th:block>
     <title>The Pit Stop: finalprojsswd</title>
 </head>
 <body>
+
     <div th:fragment="header">
         <h2>The Pit Stop</h2>
     </div>
-
-    <th:block th:fragment="scripts">
-        <script></script>
-    </th:block>
 
     <br><br>
     <span th:text="${car}"></span>
@@ -29,4 +26,7 @@
     </div>
 
 </body>
+<th:block th:fragment="scripts">
+    <script></script>
+</th:block>
 </html>

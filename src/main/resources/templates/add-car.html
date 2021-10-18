@@ -2,50 +2,41 @@
 <html lang="en"
     xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:fragment="headAttributes">
+    <th:block th:fragment="headerFiles">
         <meta charset="UTF-8">
     </th:block>
     <title>The Pit Stop: Add Vehicle</title>
 </head>
 <body>
-    <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
-        <a class="navbar-brand" th:href="@{/}"><img id="logo" th:src="@{/images/cars.jpg}"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarContent" aria-controls="navbarContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/}">Home</a>
-                </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/car}">Add Vehicle</a>
-                </li>
-            </ul>
+   <div th:replace="fragments/base :: navigation"></div>
+   <div th:replace="fragments/base :: header"></div>
+
+   <br><br>
+   <h3>Vehicle Information:</h3>
+   <form class="mt-5" th:action="@{/car}" th:object="${car}" method="post">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-3">
+                    <input class="form-control" id="make" type="text" th:field="*{make}" placeholder="Make">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-3">
+                    <input class="form-control" id="mode" type="text" th:field="*{mode}" placeholder="Model">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <input class="form-control" id="year" type="text" th:field="*{year}" placeholder="Year">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit">
+                </div>
+            </div>
         </div>
-    </nav>
-
-    <div th:fragment="header">
-        <h2>The Pit Stop</h2>
-    </div>
-
-    <th:block th:fragment="scripts">
-        <script></script>
-    </th:block>
-
-    <br><br>
-    <form th:action="@{/car}" th:object="${car}" method="post">
-        <h3>Vehicle Information:</h3>
-        <input id="make" type="text" th:field="*{make}" placeholder="Make">
-        <br>
-        <input id="mode" type="text" th:field="*{mode}" placeholder="Model">
-        <br>
-        <input id="year" type="text" th:field="*{year}" placeholder="Year">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
+   </form>
 
     <br>
     <br>
@@ -55,4 +46,7 @@
     </div>
 
 </body>
+<th:block th:fragment="scripts">
+    <script></script>
+</th:block>
 </html>
