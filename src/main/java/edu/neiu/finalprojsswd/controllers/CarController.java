@@ -23,6 +23,6 @@ public class CarController {
         System.out.println("Make: " + car.getMake());
         System.out.println("Model: " + car.getMode());
         System.out.println("Year: " + car.getYear());
-        return "redirect:/home";
+        return "redirect:/";
     }
 }

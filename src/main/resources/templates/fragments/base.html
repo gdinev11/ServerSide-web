@@ -2,8 +2,11 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:fragment="headAttributes">
+    <th:block th:fragment="headerFiles">
         <meta charset="UTF-8">
+        <meta name=""viewport content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+        <link th:rel="stylesheet" th:href="@{/css/base.css}">
     </th:block>
     <title>The Pit Stop: finalprojsswd</title>
 </head>
@@ -14,8 +17,9 @@
     <div th:fragment="footer">
         George Dinev @ Copyright 2021
     </div>
-    <th:block th:fragment="scripts">
-        <script></script>
-    </th:block>
 </body>
+    <th:block th:fragment="scripts">
+        <script th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/5.1.1/js/bootstrap.min.js}"></script>
+    </th:block>
 </html>

@@ -9,11 +9,13 @@ public class Car {
     public Car() {
         this.make = "";
         this.mode = "";
+        this.year = 0;
     }
 
-    public Car(String make, String mod) {
+    public Car(String make, String mod, int year) {
         this.make = make;
         this.mode = mod;
+        this.year = year;
     }
 
     public String getMake() {
