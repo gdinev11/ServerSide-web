@@ -19,7 +19,7 @@ public class CarController {
     }
 
     @PostMapping
-    public String handleCarForm(Car car) {
+    public String handleCarForm(@ModelAttribute("car") Car car) {
         System.out.println("Make: " + car.getMake());
         System.out.println("Model: " + car.getMode());
         System.out.println("Year: " + car.getYear());
