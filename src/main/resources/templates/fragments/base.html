@@ -4,7 +4,7 @@
 <head>
     <th:block th:fragment="headerFiles">
         <meta charset="UTF-8">
-        <meta name=""viewport content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
         <link th:rel="stylesheet" th:href="@{/css/base.css}">
         
@@ -14,27 +14,29 @@
 <body>
     <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
         <a class="navbar-brand" th:href="@{/}"><img id="logo" th:src="@{/images/cars.jpg}"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarContent" aria-controls="navbarContent"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/}">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/car}">Add Vehicle</a>
+                <li class="nav-item" >
+                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}" th:href="@{/car}">Add Vehicle</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div th:fragment="header">
+        <img id="cars" th:src="@{/images/cars.jpg}">
         <h2>The Pit Stop</h2>
+
     </div>
-    <div th:fragment="footer">
+    <div th:fragment="footer" class="justify-content-center">
         George Dinev @ Copyright 2021
     </div>
 </body>
