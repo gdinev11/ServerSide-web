@@ -70,13 +70,13 @@ public class Car {
     }
 
     @PrePersist
-    public void onCreate {
+    public void onCreate() {
         this.setCreated(LocalDateTime.now());
         this.setModified(LocalDateTime.now());
     }
 
     @PreUpdate
-    public void onUpdate{
+    public void onUpdate (){
         this.setModified(LocalDateTime.now());
     }
 
