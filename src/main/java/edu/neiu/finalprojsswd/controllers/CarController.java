@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/car")
 public class CarController {
@@ -29,7 +31,9 @@ public class CarController {
     }
 
     @PostMapping
-    public String handleCarForm(@ModelAttribute("car") Car car) {
+    public String handleCarForm(@Valid @ModelAttribute("car") Car car, Errors errors) {
+        if (errors.hasErrors())
+            return "add-car";
         this.carRepo.save(car);
         return "redirect:/";
     }

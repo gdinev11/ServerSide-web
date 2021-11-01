@@ -1,6 +1,7 @@
 package edu.neiu.finalprojsswd.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -9,9 +10,20 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
+    @NotBlank(message = "Make of Vehicle is required")
+    @Size(min = 2, message = "Make not found")
     private String make;
+
+    @NotBlank(message = "Model of Vehicle is required")
+    @Size(min = 2, message = "Model not found")
     private String mode;
+
+    @NotNull(message = "Year is required")
+    @Min(value = 1920, message = "Vehicle before 1920 not found")
+    @Max(value = 2022, message = "Vehicle after 2022 not made")
     private int year;
+
     private LocalDateTime created;
     private LocalDateTime modified;
 
