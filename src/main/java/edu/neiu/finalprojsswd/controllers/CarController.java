@@ -35,6 +35,6 @@ public class CarController {
         if (errors.hasErrors())
             return "add-car";
         this.carRepo.save(car);
-        return "redirect:/";
+        return "redirect:/view";
     }
 }

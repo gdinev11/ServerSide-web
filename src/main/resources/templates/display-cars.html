@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title>Home</title>
+</head>
+<body>
+    <div th:replace="fragment/base :: navigation"></div>
+
+    <div th:replace="fragments/base :: header"></div>
+
+    <div th:replace="fragments/base :: headerFiles"></div>
+
+    <div class="container-fluid mt-5" >
+        <div th:each="car: ${cars}">
+            <div class="row justify-content-center mb-5">
+                <div class="col-2 col-md-4"></div>
+                <div class="col-8 col-md-4 card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${car}"></h5>
+                        <span th:text="Year:  + ${car.year}"></span>
+                        <span th:text="'Date Created: ' + ${#temporals.format(car.created, 'dd-MM-yyyy HH:mm')}"></span><br>
+                        <span th:text="'Date Modified: ' + ${#temporals.format(car.modified, 'dd-MM-yyyy HH:mm')}"></span><br>
+                    </div>
+                </div>
+                <div class="col-2 col-md-4">></div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <div th:replace="fragments/base :: footer"></div>
+</body>
+<th:block th:replace="fragment/base :: scripts"></th:block>
+</html>

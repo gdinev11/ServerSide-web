@@ -13,6 +13,6 @@ public class HomeController {
     @GetMapping
     public String getHomePage(Model model) {
         model.addAttribute("car", new Car("Subaru", "Crosstrek", 2016));
-        return "index-page";
+        return "first-page";
     }
 }
