@@ -64,6 +64,9 @@ public class Car {
         this.year = year;
     }
 
+    public long getId() {
+        return id;
+    }
 
     public LocalDateTime getCreated() {
         return created;
