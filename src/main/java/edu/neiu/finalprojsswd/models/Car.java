@@ -24,6 +24,11 @@ public class Car {
     @Max(value = 2022, message = "Vehicle after 2022 not made")
     private int year;
 
+    @NotBlank(message = "Email is required")
+    @Email(message = "Must be valid email address")
+    @Column(unique = true)
+    private String email;
+
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -32,12 +37,14 @@ public class Car {
         this.make = "";
         this.mode = "";
         this.year = 0;
+        this.email = "";
     }
 
-    public Car(String make, String mod, int year) {
+    public Car(String make, String mod, int year, String email) {
         this.make = make;
         this.mode = mod;
         this.year = year;
+        this.email = email;
     }
 
     public String getMake() {
@@ -64,8 +71,12 @@ public class Car {
         this.year = year;
     }
 
+    public void setEmail(String email) {this.email = email;}
+
+    public String getEmail() {return email;}
+
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public LocalDateTime getCreated() {

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org">
+        xmlns:th="htttp://www.thymleaf.org">
 <head>
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
-    <title>The Pit Stop: Add Vehicle</title>
+    <title>Vehicle</title>
 </head>
 <body>
-    <th:block th:fragment="headerFiles">
-        <meta charset="UTF-8">
-    </th:block>
-   <div th:replace="fragments/base :: navigation"></div>
-   <div th:replace="fragments/base :: header"></div>
-   <div th:replace="fragments/base :: headerFiles"></div>
+    <div th:replace="fragment/base :: navigation"></div>
+    <div th:replace="fragments/base :: header"></div>
 
-   <br><br>
-   <h3>Vehicle Information:</h3>
-   <form class="mt-5" th:action="@{/car}" th:object="${car}" method="post">
+    <div class="container-fluid mt-3">
+        <div class="row justify-content-center">
+            <h3 class="text-center col 12">View/Edit Vehicle</h3>
+        </div>
+    </div>
+
+    <form class="mt-3 mb-3" th:action="@{/car/edit/{id}(id=${car.id})}" th:object="${car}" method="post">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-8 col-md-3">
@@ -27,7 +27,7 @@
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-3">
                     <span class="text-danger small" th:if="${#fields.hasErrors('make')}"
-                        th:errors="*{make}">
+                          th:errors="*{make}">
                     </span>
                 </div>
             </div>
@@ -51,8 +51,9 @@
                 <label for="year" class = "col-2 col-md-1 col-form-label">Year:</label>
                 <div class="col-2 col-md-1">
                     <input class="form-control" id="year" type="number" th:field="*{year}"
-                        min="1920" max="2022" required/>
+                           min="1920" max="2022" />
                 </div>
+                <div class="col-3 col-md-1"></div>
             </div>
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-3">
@@ -77,20 +78,27 @@
                 </div>
             </div>
 
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-3">
+                    <span th:text="'Date created: ' + ${#temporals.format(car.created, 'dd-MM-yyyy MM:mm')}"></span><br>
+                    <span th:text="'Date modified: ' + ${#temporals.format(car.modified, 'dd-MM-yyyy MM:mm')}"></span>
+                </div>
+            </div>
+
 
             <div class="row justify-content-center">
                 <div class="col-8">
-                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit" />
+                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/view}">Cancel</a>
                 </div>
             </div>
         </div>
-   </form>
+    </form>
 
     <br>
     <br>
-    
+
     <div th:replace="fragments/base :: footer"</div>
-
 
 </body>
 <th:block th:replace="fragments/base :: scripts"></th:block>
