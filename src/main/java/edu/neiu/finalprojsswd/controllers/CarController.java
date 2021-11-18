@@ -75,4 +75,10 @@ public class CarController {
         original.setYear(update.getYear());
         original.setEmail(update.getEmail());
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCar(@PathVariable Long id) {
+        this.carRepo.deleteById(id);
+        return "redirect:/view";
+    }
 }
