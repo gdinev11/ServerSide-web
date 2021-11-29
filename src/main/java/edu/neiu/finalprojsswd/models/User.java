@@ -24,6 +24,12 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String vehicle;
+
     private String make;
     private String mod;
     private boolean enabled;
@@ -39,16 +45,18 @@ public class User implements UserDetails {
     public enum Role { ROLE_ADMIN, ROLE_USER}
 
     public User() {}
-    public User(String email, String username, String password, String make, String mod) {
+    public User(String email, String username, String password, String vehicle, String make, String mod) {
         this.email=email;
         this.username = username;
         this.password = password;
+        this.vehicle = vehicle;
         this.make = make;
         this.mod = mod;
         this.accountNonExpired = true;
         this.accountNonLocked = true;
         this.credentialsNonExpired = true;
     }
+
 
     public void setUsername(String username) {
         this.username = username;
