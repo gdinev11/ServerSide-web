@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <th:block th:fragment="headerFiles">
         <meta charset="UTF-8">
@@ -23,17 +24,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}" th:href="@{/}">Home</a>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}" th:href="@{/car}">Add Vehicle</a>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}"
+                    sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link" th:href="@{/car}">Add Vehicle</a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}" th:href="@{/view}">View Vehicle</a>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}"
+                    sec:authorize="hasAnyRole('USER', 'ADMIN')">
+                    <a class="nav-link" th:href="@{/view}">View Vehicle</a>
                 </li>
             </ul>
-            <a th:href="@{/logout}" class="btn btn-light btn-outline-dark">Log out</a>
+            <a th:href="@{/logout}" class="btn btn-light btn-outline-dark" sec:authorize="isAuthenticated()">Log out</a>
         </div>
     </nav>
 
