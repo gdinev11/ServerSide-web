@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.validation.Valid;
@@ -31,7 +30,7 @@ public class CarController {
     }
 
     @GetMapping("/view/{id}")
-    public String ShowStudent(@PathVariable Long id, Model model){
+    public String ShowCar(@PathVariable Long id, Model model){
         Car car = this.carRepo.findById(id).get();
         model.addAttribute("car", car);
         return "view-car";

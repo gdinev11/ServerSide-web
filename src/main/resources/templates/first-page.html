@@ -2,39 +2,17 @@
 <html lang="en"
     xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:fragment="headerFiles">
-        <meta charset="UTF-8">
-        <link th:rel="stylesheet" th:href="@{/css/base.css}">
-    </th:block>
+    <th:block th:replace="fragments/base :: headerFiles"></th:block>
     <title>The Pit Stop: finalprojsswd</title>
 </head>
 <body>
 
-    <div th:replace="fragment/base :: navigation"></div>
+    <div th:replace="fragments/base :: navigation"></div>
 
     <div th:replace="fragments/base :: header"></div>
 
-    <div th:replace="fragments/base :: headerFiles"></div>
-
-    <div th:fragment="header">
-        <img id="cars" th:src="@{/images/cars.jpg}">
-        <h2>The Pit Stop</h2>
-    </div>
-
-    <br><br>
-    <span th:text="${car}"></span>
-    <br><br>
-    <span th:text="${car.make + ' ' + car.mode}"></span>
-
-    <br>
-    <br>
-
-    <div th:fragment="footer" class="justify-content-center">
-        George Dinev @ Copyright 2021
-    </div>
+    <div th:replace="fragments/base :: footer"></div>
 
 </body>
-<th:block th:fragment="scripts">
-    <script></script>
-</th:block>
+<th:block th:replace="fragments/base :: scripts"></th:block>
 </html>
