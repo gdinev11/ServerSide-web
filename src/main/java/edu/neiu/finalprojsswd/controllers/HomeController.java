@@ -11,6 +11,11 @@ public class HomeController {
 
     @GetMapping
     public String getHomePage(Model model) {
-        return "first-page";
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
     }
 }

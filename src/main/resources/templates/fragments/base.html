@@ -33,6 +33,7 @@
                     <a class="nav-link" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}" th:href="@{/view}">View Vehicle</a>
                 </li>
             </ul>
+            <a th:href="@{/logout}" class="btn btn-light btn-outline-dark">Log out</a>
         </div>
     </nav>
 
