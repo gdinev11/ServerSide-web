@@ -27,11 +27,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String vehicle;
 
-    private String make;
-    private String mod;
     private boolean enabled;
     private boolean accountNonExpired;
     private boolean accountNonLocked;
@@ -45,13 +41,11 @@ public class User implements UserDetails {
     public enum Role { ROLE_ADMIN, ROLE_USER}
 
     public User() {}
-    public User(String email, String username, String password, String vehicle, String make, String mod) {
+    public User(String email, String username, String password, String name) {
         this.email=email;
         this.username = username;
         this.password = password;
-        this.vehicle = vehicle;
-        this.make = make;
-        this.mod = mod;
+        this.name = name;
         this.accountNonExpired = true;
         this.accountNonLocked = true;
         this.credentialsNonExpired = true;
@@ -82,10 +76,13 @@ public class User implements UserDetails {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
+    public String getName() {return name;}
+
+    public void setName(String name) { this.name = name;}
 
     public String getEmail() {
         return email;
@@ -95,21 +92,7 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public String getMake() {
-        return make;
-    }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
-
-    public String getMod() {
-        return mod;
-    }
-
-    public void setMod(String mod) {
-        this.mod = mod;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
