@@ -15,3 +15,8 @@ spring:
   sql:
     init:
       platform: mysql
+
+server:
+  error:
+    whitelabel:
+      enabled: false
