@@ -23,7 +23,15 @@
                 </div>
                 <div class="col-2 col-md-4"></div>
             </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-3">
+                    <span th:text="'Date created: ' + ${#temporals.format(car.created, 'dd-MM-yyyy MM:mm')}"></span><br>
+                    <span th:text="'Date modified: ' + ${#temporals.format(car.modified, 'dd-MM-yyyy MM:mm')}"></span>
+                </div>
+            </div>
         </div>
+
 
     </div>
 

@@ -21,8 +21,14 @@
             </div>
         </div>
         <div class="row justify-content-center" sec:authorize="isAnonymous()">
-            <div class="col-8 col-md-3 text-center">
+            <div class="col-8 col-md-3 mb-3 text-center">
                 <a th:href="@{/login}" class="btn btn-light btn-outline-dark">Login</a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" sec:authorize="isAnonymous()">
+            <div class="col-8 col-md-3 text-center">
+                <a th:href="@{/register}" class="btn btn-light btn-outline-dark">Register</a>
             </div>
         </div>
     </div>

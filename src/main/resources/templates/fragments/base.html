@@ -28,13 +28,14 @@
                     <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}"
-                    sec:authorize="hasRole('ADMIN')">
+                    sec:authorize="hasAnyRole('USER')">
                     <a class="nav-link" th:href="@{/car}">Add Vehicle</a>
                 </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/car' ? 'active' : ''}"
                     sec:authorize="hasAnyRole('USER', 'ADMIN')">
                     <a class="nav-link" th:href="@{/car}">View Vehicle</a>
                 </li>
+
             </ul>
             <a th:href="@{/logout}" class="btn btn-light btn-outline-dark" sec:authorize="isAuthenticated()">Log out</a>
         </div>
