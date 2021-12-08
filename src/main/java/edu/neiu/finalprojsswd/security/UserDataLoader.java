@@ -26,15 +26,15 @@ public class UserDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        User user1 = new User("gdinev@neiu.edu", "george", passwordEncoder.encode("password"), "Subaru", "Crosstrek");
-//        user1.setRoles(Set.of(User.Role.ROLE_ADMIN));
-//        user1.setEnabled(true);
-//        userRepo.save(user1);
-//
-//        User user2 = new User("foo2@foo.com", "foo2", passwordEncoder.encode("password"), "Toyota", "Corolla");
-//        user2.setRoles(Set.of(User.Role.ROLE_USER));
-//        user2.setEnabled(true);
-//        userRepo.save(user2);
+        User user1 = new User("gdinev@neiu.edu", "GDinny", passwordEncoder.encode("password"), "George");
+        user1.setRoles(Set.of(User.Role.ROLE_ADMIN));
+        user1.setEnabled(true);
+        userRepo.save(user1);
+
+        User user2 = new User("foo2@foo.com", "foo2", passwordEncoder.encode("password"), "foo");
+        user2.setRoles(Set.of(User.Role.ROLE_USER));
+        user2.setEnabled(true);
+        userRepo.save(user2);
 
     }
 }
