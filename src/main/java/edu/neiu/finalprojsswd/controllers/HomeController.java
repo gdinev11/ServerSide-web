@@ -46,6 +46,6 @@ public class HomeController {
             return "register";
         }
 
-        return "redirect:/login";
+        return "redirect:/index";
     }
 }
