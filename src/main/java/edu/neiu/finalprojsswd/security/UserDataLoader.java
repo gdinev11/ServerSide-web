@@ -4,6 +4,7 @@ import edu.neiu.finalprojsswd.data.UserRepository;
 import edu.neiu.finalprojsswd.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +14,11 @@ import java.util.Set;
 public class UserDataLoader implements CommandLineRunner {
 
     private UserRepository userRepo;
-    private PasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
 
     @Autowired
-    public UserDataLoader(UserRepository userRepo, PasswordEncoder passwordEncoder){
+    public UserDataLoader(UserRepository userRepo, BCryptPasswordEncoder passwordEncoder){
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
     }

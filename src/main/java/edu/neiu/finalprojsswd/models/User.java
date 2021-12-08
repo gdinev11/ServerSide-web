@@ -40,7 +40,11 @@ public class User implements UserDetails {
 
     public enum Role { ROLE_ADMIN, ROLE_USER}
 
-    public User() {}
+    public User() {
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.credentialsNonExpired = true;
+    }
     public User(String email, String username, String password, String name) {
         this.email=email;
         this.username = username;
